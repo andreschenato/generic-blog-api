@@ -15,6 +15,7 @@ class PostResource extends JsonResource
             "content" => $this->content,
             "postedAt" => $this->created_at->diffForHumans(),
             "editedAt" => $this->updated_at->diffForHumans(),
+            "comments"=> CommentResource::collection($this->whenLoaded("comments")),
         ];
     }
 }
