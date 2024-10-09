@@ -23,21 +23,17 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        //
-    }
-
-    public function edit(Post $post)
-    {
-        //
+        return new PostResource($post);
     }
 
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
     }
 
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return response(status: 204);
     }
 }
